@@ -697,22 +697,8 @@
           <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:2;color:#9aa3ad;margin-top:14px">Tree FDN + Prime Verb + Prime Lineage · 7 days · full audio quality<br>Expand32 Synth releases in August — no demo until release.<br>No account inside the plugin — ever.</div>
         </div>
         <div style="display:flex;flex-direction:column;gap:10px;min-width:300px;flex:1;max-width:360px">
-          <sc-if value="{{ demoNotSent }}" hint-placeholder-val="{{ true }}">
-            <div style="display:flex;flex-direction:column;gap:10px">
-              <input type="text" placeholder="Your name" style="background:#0a0c0f;border:1px solid #2c343f;border-radius:8px;padding:13px 16px;color:#e8eaed;font-size:15px;outline:none" style-focus="border-color:#ff8a2a">
-              <input type="email" placeholder="you@studio.com" style="background:#0a0c0f;border:1px solid #2c343f;border-radius:8px;padding:13px 16px;color:#e8eaed;font-size:15px;outline:none" style-focus="border-color:#ff8a2a">
-              <div onClick="{{ sendDemo }}" style="display:flex;justify-content:center;background:#ff8a2a;color:#0a0c0f;font-weight:700;font-size:15.5px;padding:14px 0;border-radius:8px;cursor:pointer" style-hover="background:#ffa04d">↓ Send me the download link</div>
-              <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.7;color:#5b6570;text-align:center">VST3 + STANDALONE · 64-BIT<br>One-time online activation — offline forever after.</div>
-            </div>
-          </sc-if>
-          <sc-if value="{{ demoSent }}" hint-placeholder-val="{{ false }}">
-            <div style="text-align:center;padding:18px 10px">
-              <div style="font-size:28px;color:#45c4f0">✓</div>
-              <div style="font-weight:800;font-size:19px;color:#f2f4f6;margin-top:10px">Check your inbox.</div>
-              <p style="font-size:14px;line-height:1.6;color:#9aa3ad;margin:8px 0 0">The download link is on its way to your email.</p>
-              <div onClick="{{ resetDemo }}" style="display:inline-flex;margin-top:14px;border:1px solid #2c343f;color:#c9d0d8;font-weight:600;font-size:13px;padding:9px 18px;border-radius:8px;cursor:pointer" style-hover="border-color:#ff8a2a;color:#ff8a2a">Use another email</div>
-            </div>
-          </sc-if>
+          <a href="https://expand32.gumroad.com/l/Demoexpand32" target="_blank" rel="noopener" style="display:flex;justify-content:center;background:#ff8a2a;color:#0a0c0f;font-weight:700;font-size:15.5px;padding:14px 0;border-radius:8px;text-decoration:none" style-hover="background:#ffa04d">↓ Download demo</a>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.7;color:#5b6570;text-align:center">VST3 + STANDALONE · 64-BIT</div>
         </div>
       </div>
     </div>
