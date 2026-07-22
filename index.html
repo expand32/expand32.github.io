@@ -171,17 +171,27 @@
             <iframe src="https://www.youtube.com/embed/OigM_SSSbHU" title="Expand32 — sound demo" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
           <div style="display:flex;flex-direction:column;gap:12px;margin-top:48px">
-            <sc-for list="{{ demos }}" as="d" hint-placeholder-count="3">
-              <div style="display:flex;align-items:center;gap:20px;background:#12151a;border:1px solid #232933;border-radius:12px;padding:18px 24px">
-                <div style="width:44px;height:44px;border-radius:50%;border:1px solid #2c343f;display:flex;align-items:center;justify-content:center;color:#5b6570;font-size:14px;flex-shrink:0">▶</div>
-                <div style="flex:1;min-width:0">
-                  <div style="font-weight:700;font-size:16px;color:#e8eaed">{{ d.title }}</div>
-                  <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5b6570;margin-top:4px">{{ d.sub }}</div>
-                </div>
-                <div style="flex:1;height:30px;background:repeating-linear-gradient(90deg, #232933 0 3px, transparent 3px 7px);border-radius:4px;opacity:0.6"></div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.16em;color:#5b6570;border:1px solid #232933;border-radius:100px;padding:6px 12px;flex-shrink:0">COMING SOON</div>
+            <div style="display:flex;align-items:center;gap:20px;background:#12151a;border:1px solid #232933;border-radius:12px;padding:18px 24px;flex-wrap:wrap">
+              <div style="flex:1;min-width:220px">
+                <div style="font-weight:700;font-size:16px;color:#e8eaed">Multitap lead — Prime Lineage + Tree FDN</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5b6570;margin-top:4px">A/B DEMO · FIRST PASS DRY — THEN THE FX KICK IN</div>
               </div>
-            </sc-for>
+              <audio controls preload="none" src="./audios/tree-multitap-lead.wav" style="flex:1;min-width:260px;height:36px"></audio>
+            </div>
+            <div style="display:flex;align-items:center;gap:20px;background:#12151a;border:1px solid #232933;border-radius:12px;padding:18px 24px;flex-wrap:wrap">
+              <div style="flex:1;min-width:220px">
+                <div style="font-weight:700;font-size:16px;color:#e8eaed">Trumpet — Tree FDN</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5b6570;margin-top:4px">A/B DEMO · FIRST PASS DRY — THEN THE REVERB KICKS IN</div>
+              </div>
+              <audio controls preload="none" src="./audios/trumpet-tree-fdn.wav" style="flex:1;min-width:260px;height:36px"></audio>
+            </div>
+            <div style="display:flex;align-items:center;gap:20px;background:#12151a;border:1px solid #232933;border-radius:12px;padding:18px 24px;flex-wrap:wrap">
+              <div style="flex:1;min-width:220px">
+                <div style="font-weight:700;font-size:16px;color:#e8eaed">Vocal — Tree FDN</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5b6570;margin-top:4px">A/B DEMO · FIRST PASS DRY — THEN THE REVERB KICKS IN</div>
+              </div>
+              <audio controls preload="none" src="./audios/vocal-tree-fdn.wav" style="flex:1;min-width:260px;height:36px"></audio>
+            </div>
           </div>
         </div>
       </div>
