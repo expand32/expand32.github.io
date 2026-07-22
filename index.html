@@ -226,8 +226,8 @@
     <div style="border-top:1px solid #151a21;background:radial-gradient(ellipse 60% 90% at 50% 110%, rgba(255,138,42,0.12), transparent 70%)">
       <div style="max-width:760px;margin:0 auto;padding:110px 32px;text-align:center">
         <h2 style="font-size:clamp(34px,5vw,56px);font-weight:900;letter-spacing:-0.025em;line-height:1.02;color:#f2f4f6;margin:0">Don't take our word for it.</h2>
-        <p style="font-size:18px;line-height:1.65;color:#9aa3ad;margin:22px auto 0;max-width:560px">Download the free demo — the three FX (Tree FDN, Prime Verb, Prime Lineage), 7 days, full sound quality. Leave your name and email and the link is on its way. One installer for demo and full: a license key unlocks everything, even offline.</p>
-        <div onClick="{{ goBuy }}" style="display:inline-flex;align-items:center;gap:10px;background:#ff8a2a;color:#0a0c0f;font-weight:700;font-size:16px;padding:15px 32px;border-radius:8px;cursor:pointer;margin-top:34px" style-hover="background:#ffa04d">Get the download link</div>
+        <p style="font-size:18px;line-height:1.65;color:#9aa3ad;margin:22px auto 0;max-width:560px">Download the free demo — the three FX (Tree FDN, Prime Verb, Prime Lineage), 7 days, full sound quality. One installer for demo and full: a license key unlocks everything, even offline.</p>
+        <a href="https://expand32.gumroad.com/l/Demoexpand32" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#ff8a2a;color:#0a0c0f;font-weight:700;font-size:16px;padding:15px 32px;border-radius:8px;cursor:pointer;margin-top:34px;text-decoration:none" style-hover="background:#ffa04d">↓ Download free demo</a>
       </div>
     </div>
   </div>
@@ -1089,23 +1089,23 @@ class Component extends DCLogic {
           kind: 'BUNDLE', name: 'Expand32 Bundle',
           price: '$19', was: '', badge: 'INTRO PRICE',
           buyUrl: 'https://expand32.gumroad.com/l/treefdn',
-          lines: 'Tree FDN \u2014 algorithmic reverb\nPrime Verb \u2014 convolution reverb\nPrime Lineage \u2014 multi-tap delay\nExpand32 Synth \u2014 free \u00b7 releases August 2026\nPerpetual license \u00b7 up to 4 machines',
+          lines: 'Tree FDN \u2014 algorithmic reverb\nPrime Verb \u2014 convolution reverb\nPrime Lineage \u2014 multi-tap delay\nExpand32 Synth \u2014 free \u00b7 releases August 2026\nPerpetual license \u00b7 up to 2 machines',
           cardStyle: Object.assign({}, skuCard(true), { maxWidth: 480, width: '100%' })
         }
       ],
 
       licensePoints: [
         { icon: '⬡', title: 'One-time online activation', body: 'Purchases run through Gumroad, so the first activation needs an internet connection. After that the license is stored on your machine \u2014 it never re-verifies online and works fully offline.' },
-        { icon: '∞', title: 'Perpetual license', body: 'Pay once, keep it forever \u2014 activated on up to 4 machines. The sound you bought never expires and never depends on us staying online.' },
+        { icon: '∞', title: 'Perpetual license', body: 'Pay once, keep it forever \u2014 activated on up to 2 machines, and re-activating the same machine never costs a slot. The sound you bought never expires and never depends on us staying online.' },
         { icon: '⇩', title: 'One installer', body: 'Demo and full version are the same download. Buy whenever you\u2019re ready — your key simply unlocks what\u2019s already on your machine.' }
       ],
 
       faqs: [
         { q: 'What are the demo limitations?', a: 'The FX demo covers the three effects \u2014 Tree FDN, Prime Verb and Prime Lineage \u2014 for 7 days from first launch, at full audio quality: no noise bursts, no silence gaps. When the trial ends, the demo stops making sound and invites you to buy. A license key lifts every limit instantly. Expand32 Synth has no demo until its release in August 2026.' },
-        { q: 'Do I need an internet connection to activate?', a: 'Once. Purchases are handled through Gumroad, so the first activation needs an internet connection to verify your key. After that, the license is stored on your machine \u2014 it never re-verifies online, works fully offline, and never expires. You can activate on up to 4 machines.' },
-        { q: 'Why do you ask for my name and email to download the demo?', a: 'Only to send you the download link and keep you posted on releases and free updates \u2014 that\u2019s the whole reason. There is no account inside the plugin, and after the one-time activation nothing touches the network. Unsubscribe anytime with one click.' },
+        { q: 'Do I need an internet connection to activate?', a: 'Once. Purchases are handled through Gumroad, so the first activation needs an internet connection to verify your key. After that, the license is stored on your machine \u2014 it never re-verifies online, works fully offline, and never expires. You can activate on up to 2 machines, and re-activating a machine you already used never counts against the limit.' },
+        { q: 'How do I get the demo?', a: 'Through Gumroad, same as a purchase \u2014 just at $0. The checkout delivers the installer and keeps you reachable for release notes and free updates. There is no account inside the plugin: the demo activates online once on first launch, and after that nothing touches the network.' },
         { q: 'What formats and platforms are supported?', a: 'VST3 and standalone application on Windows (64-bit). All four products \u2014 Expand32, Prime Verb, Tree FDN and Prime Lineage \u2014 ship in both formats.' },
-        { q: 'Is the license perpetual?', a: 'Yes. One payment, yours forever \u2014 activated on up to 4 machines. If we ever introduce time-limited anything, it will only apply to access to future updates \u2014 never to the software and sound you already bought.' },
+        { q: 'Is the license perpetual?', a: 'Yes. One payment, yours forever \u2014 activated on up to 2 machines. If we ever introduce time-limited anything, it will only apply to access to future updates \u2014 never to the software and sound you already bought.' },
         { q: 'How do I get Expand32 Synth for free?', a: 'Buy the bundle \u2014 Tree FDN + Prime Verb + Prime Lineage \u2014 and Expand32 Synth is included free for a limited time. The synth releases in August 2026, and your license for it is sent at release. Same perpetual license, same 4-machine limit.' },
         { q: 'Why two reverbs? What\u2019s the difference between Prime Verb and Tree FDN?', a: 'They are different engines on the same geometry, deliberately not merged. Prime Verb is the room photographed \u2014 a convolution of a number-theoretic impulse response: exact, fixed, captured. Tree FDN is the room alive \u2014 a recursive network of sixteen delay lines on the same tree that breathes, morphs in real time and can freeze forever. Tree FDN can even export its current room as a 24-bit IR that any convolution reverb can load.' },
         { q: 'I see names like AES and cipher in the engine list. Is there cryptography in my DAW?', a: 'No. Expand32 borrows mathematical structures as timbre generators \u2014 the \u201cAES\u201d engine simply uses a well-known substitution curve as a waveshaper, the way other plugins use tanh(x). There is no encryption, no telemetry and no data collection \u2014 the only network touch is the one-time license activation. The only thing this software produces is audio.' },
