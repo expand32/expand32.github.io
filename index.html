@@ -768,56 +768,31 @@
         </sc-for>
         <div style="border-top:1px solid #232933"></div>
       </div>
-      <p style="font-size:15px;color:#9aa3ad;margin:34px 0 0">Something else? The form below goes straight to the team — we answer everything.</p>
+      <p style="font-size:15px;color:#9aa3ad;margin:34px 0 0">Something else? Reach the team below — we answer everything.</p>
     </div>
 
     <!-- Contact (merged) -->
     <div data-screen-label="Contact" style="border-top:1px solid #151a21">
-    <div style="max-width:1080px;margin:0 auto;padding:90px 32px 110px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:70px;align-items:start">
+    <div style="max-width:640px;margin:0 auto;padding:90px 32px 110px;text-align:center">
       <div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;color:#ff8a2a;text-transform:uppercase;font-weight:500">Contact</div>
         <h1 style="font-size:clamp(38px,5vw,58px);font-weight:900;letter-spacing:-0.03em;line-height:1.02;color:#f2f4f6;margin:18px 0 0">Talk to the team that wrote the code.</h1>
         <p style="font-size:16.5px;line-height:1.7;color:#9aa3ad;margin:22px 0 0">Expand32 Sounds is built and supported by a small team — questions about licensing, the demo, or the math behind the sound go straight to the source.</p>
-        <div style="margin-top:36px;display:flex;flex-direction:column;gap:18px">
-          <div style="display:flex;gap:14px;align-items:baseline">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;color:#5b6570;width:70px;flex-shrink:0">SUPPORT</div>
-            <a href="mailto:support@expand32sounds.com" style="font-size:16px;font-weight:600">support@expand32sounds.com</a>
+        <div style="margin-top:40px;display:flex;flex-direction:column;gap:20px;align-items:center">
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;color:#5b6570">SUPPORT</div>
+            <a href="mailto:expand32sound@gmail.com" style="font-size:18px;font-weight:600;color:#ff8a2a;text-decoration:none">expand32sound@gmail.com</a>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;color:#5b6570">INSTAGRAM</div>
+            <a href="https://www.instagram.com/expand32sounds" target="_blank" rel="noopener" style="font-size:18px;font-weight:600;color:#ff8a2a;text-decoration:none">@expand32sounds</a>
           </div>
           
-          <div style="display:flex;gap:14px;align-items:baseline">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;color:#5b6570;width:70px;flex-shrink:0">BASE</div>
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;color:#5b6570">BASE</div>
             <div style="font-size:16px;color:#c9d0d8">Querétaro, México</div>
           </div>
         </div>
-      </div>
-      <div style="background:#12151a;border:1px solid #232933;border-radius:16px;padding:38px">
-        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
-          <div style="display:flex;flex-direction:column;gap:18px">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-              <div style="display:flex;flex-direction:column;gap:8px">
-                <label style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;color:#9aa3ad">NAME</label>
-                <input type="text" placeholder="Your name" style="background:#0a0c0f;border:1px solid #2c343f;border-radius:8px;padding:13px 16px;color:#e8eaed;font-size:15px;outline:none" style-focus="border-color:#ff8a2a">
-              </div>
-              <div style="display:flex;flex-direction:column;gap:8px">
-                <label style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;color:#9aa3ad">EMAIL</label>
-                <input type="email" placeholder="you@studio.com" style="background:#0a0c0f;border:1px solid #2c343f;border-radius:8px;padding:13px 16px;color:#e8eaed;font-size:15px;outline:none" style-focus="border-color:#ff8a2a">
-              </div>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:8px">
-              <label style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;color:#9aa3ad">MESSAGE</label>
-              <textarea rows="6" placeholder="What's on your mind?" style="background:#0a0c0f;border:1px solid #2c343f;border-radius:8px;padding:13px 16px;color:#e8eaed;font-size:15px;outline:none;resize:vertical;min-height:130px" style-focus="border-color:#ff8a2a"></textarea>
-            </div>
-            <div onClick="{{ sendMsg }}" style="display:flex;justify-content:center;background:#ff8a2a;color:#0a0c0f;font-weight:700;font-size:15px;padding:15px 0;border-radius:8px;cursor:pointer" style-hover="background:#ffa04d">Send message</div>
-          </div>
-        </sc-if>
-        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
-          <div style="text-align:center;padding:40px 10px">
-            <div style="font-size:34px;color:#45c4f0">✓</div>
-            <div style="font-weight:800;font-size:22px;color:#f2f4f6;margin-top:16px">Message received.</div>
-            <p style="font-size:15px;line-height:1.65;color:#9aa3ad;margin:12px 0 0">We'll get back to you at the address you provided — usually within a day or two.</p>
-            <div onClick="{{ resetForm }}" style="display:inline-flex;margin-top:24px;border:1px solid #2c343f;color:#c9d0d8;font-weight:600;font-size:14px;padding:11px 22px;border-radius:8px;cursor:pointer" style-hover="border-color:#ff8a2a;color:#ff8a2a">Send another</div>
-          </div>
-        </sc-if>
       </div>
     </div>
     </div>
@@ -833,7 +808,7 @@
           <div style="font-weight:900;font-size:20px;letter-spacing:-0.02em;color:#f2f4f6">Expand<span style="color:#45c4f0">32</span></div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.3em;color:#5b6570">SOUNDS</div>
         </div>
-        <p style="font-size:13.5px;line-height:1.7;color:#5b6570;margin:16px 0 0">Mathematical instruments for sound designers and producers. Pure real-time audio DSP — no network, no telemetry. Just sound.</p>
+        <p style="font-size:13.5px;line-height:1.7;color:#5b6570;margin:16px 0 0">Mathematical instruments for sound designers and producers. Pure real-time audio DSP — no telemetry, no tracking. One-time online license activation, then offline forever.</p>
       </div>
       <div style="display:flex;gap:72px;flex-wrap:wrap">
         <div style="display:flex;flex-direction:column;gap:12px">
@@ -850,12 +825,13 @@
         </div>
         <div style="display:flex;flex-direction:column;gap:12px">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;color:#5b6570">SUPPORT</div>
-          <a href="mailto:support@expand32sounds.com" style="font-size:14px;color:#9aa3ad" style-hover="color:#ff8a2a">support@expand32sounds.com</a>
+          <a href="mailto:expand32sound@gmail.com" style="font-size:14px;color:#9aa3ad" style-hover="color:#ff8a2a">expand32sound@gmail.com</a>
+          <a href="https://www.instagram.com/expand32sounds" target="_blank" rel="noopener" style="font-size:14px;color:#9aa3ad" style-hover="color:#ff8a2a">Instagram</a>
         </div>
       </div>
     </div>
     <div style="border-top:1px solid #151a21;margin-top:48px;padding-top:24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5b6570">
-      <div>© 2026 Expand32 Sounds · expand32sounds.com</div><div style="font-size: 11.5px; font-family: &quot;IBM Plex Mono&quot;, monospace">Designed and built by Team Expand32, led by founder David Escobar · Querétaro, Mexico</div>
+      <div>© 2026 Expand32 Sounds · expand32.github.io</div><div style="font-size: 11.5px; font-family: &quot;IBM Plex Mono&quot;, monospace">Designed and built by Team Expand32, led by founder David Escobar · Querétaro, Mexico</div>
       
     </div>
   </div>
