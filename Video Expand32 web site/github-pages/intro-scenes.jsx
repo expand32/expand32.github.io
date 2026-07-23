@@ -134,9 +134,12 @@ function audioTick() {
 }
 
 // Null renderer: mirrors the live scene clock into AC.state for the audio scheduler.
+// Also exposes the timeline transport so chrome outside the stage (the big
+// play overlay) can start playback.
 function AudioSync() {
   const tl = useTimeline(); const sc = useScene();
   AC.state = { playing: tl.playing || tl.extPlaying === true, idx: sc.index, abs: tl.time };
+  AC.setPlaying = tl.setPlaying; AC.setTime = tl.setTime; AC.duration = tl.duration;
   return null;
 }
 
@@ -296,11 +299,12 @@ function FinalScene() {
 
 // ── Root component ──
 function Expand32Intro(props) {
-  const showControls = props.showControls == null ? true : String(props.showControls) !== 'false';
   AC.vol = props.scoreVolume != null && isFinite(+props.scoreVolume) ? clamp(+props.scoreVolume, 0, 1) : 0.9;
   const [snd, setSnd] = React.useState(false); // (score engine dormant — user track is the soundtrack)
-  const [vox, setVox] = React.useState(false);
   const [blocked, setBlocked] = React.useState(false);
+  // Mirrors AC.state.playing so the play overlay can show/hide; polled
+  // because the timeline context lives inside the stage, not here.
+  const [uiPlaying, setUiPlaying] = React.useState(false);
   const trackRef = React.useRef(null);
   React.useEffect(() => {
     AC.track = trackRef.current;
@@ -321,31 +325,39 @@ function Expand32Intro(props) {
   }, []);
   React.useEffect(() => {
     if ('speechSynthesis' in window) speechSynthesis.getVoices();
-    const iv = setInterval(audioTick, 160);
+    const iv = setInterval(() => { audioTick(); setUiPlaying(AC.state.playing); }, 160);
     return () => { clearInterval(iv); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (AC.ctx) AC.master.gain.value = 0; };
   }, []);
-  const btn = (active, label, onClick) => (
-    <button onClick={onClick} style={{
-      fontFamily: FONT, fontSize: 12, letterSpacing: 1, padding: '6px 14px', cursor: 'pointer',
-      borderRadius: 999, border: `1px solid ${active ? ACC_CYAN : 'rgba(255,255,255,0.18)'}`,
-      background: active ? 'rgba(79,195,232,0.16)' : 'rgba(12,15,22,0.85)',
-      color: active ? ACC_CYAN : '#9aa2b4' }}>{label}</button>
-  );
+  const startPlayback = () => {
+    if (!AC.setPlaying) return;
+    // Restart from the top when the piece already ran to its end.
+    if (AC.duration && AC.state.abs >= AC.duration - 0.05) AC.setTime(0);
+    AC.setPlaying(true);
+    setUiPlaying(true);
+  };
   return (
     <div style={{ position: 'absolute', inset: 0 }}>
-      <SceneStage width={1920} height={1080} scenes={window.OM_SCENES} playback={window.OM_PLAYBACK} bg="#06080e">
+      <SceneStage width={1920} height={1080} scenes={window.OM_SCENES} playback={window.OM_PLAYBACK} bg="#06080e" autoplay={false}>
         {{ Opening, Synth: ProductScene, TreeFDN: ProductScene, PrimeLineage: ProductScene, PrimeVerb: ProductScene, Outro, NowPlaying: FinalScene }}
       </SceneStage>
       <audio ref={trackRef} src={TRACK_SRC} preload="auto" />
+      {!uiPlaying && (
+        <div data-omelette-chrome="true" onClick={startPlayback}
+          style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 60, zIndex: 25, cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(6,8,14,0.35)' }}>
+          <div style={{ width: 96, height: 96, borderRadius: '50%', background: 'rgba(12,15,22,0.88)',
+            border: `1px solid ${ACC_CYAN}99`, boxShadow: '0 12px 44px rgba(0,0,0,0.55)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+              <path d="M11 7l17 10-17 10V7z" fill={ACC_CYAN} />
+            </svg>
+          </div>
+        </div>
+      )}
       {blocked && (
         <div data-omelette-chrome="true" style={{ position: 'absolute', top: 14, left: '50%', transform: 'translateX(-50%)', zIndex: 30,
           fontFamily: FONT, fontSize: 13, letterSpacing: 0.5, color: '#f3f5f9', background: 'rgba(12,15,22,0.9)',
           border: '1px solid rgba(79,195,232,0.5)', borderRadius: 999, padding: '8px 18px' }}>♪ Click anywhere to enable sound</div>
-      )}
-      {showControls && (
-        <div data-omelette-chrome="true" style={{ position: 'absolute', left: 14, bottom: 56, zIndex: 20, display: 'flex', gap: 8 }}>
-          {btn(vox, vox ? '\ud83c\udf99 Voice: on' : '\ud83c\udf99 Voice: off', () => { const n = !vox; setVox(n); AC.voice = n; if (n) { if ('speechSynthesis' in window) speechSynthesis.getVoices(); } else if ('speechSynthesis' in window) speechSynthesis.cancel(); })}
-        </div>
       )}
     </div>
   );

@@ -540,12 +540,9 @@ function Stage({
   const playTimes = playback && playback.mode === 'times' ? playback.count : null;
   const loopEff = playback ? playback.mode === 'loop' : loop;
 
-  const [time, setTime] = React.useState(() => {
-    try {
-      const v = parseFloat(localStorage.getItem(persistKey + ':t') || '0');
-      return isFinite(v) ? clamp(v, 0, duration) : 0;
-    } catch { return 0; }
-  });
+  // Always open on the first frame — a landing-page embed must present its
+  // poster frame, not wherever a previous visit left the playhead.
+  const [time, setTime] = React.useState(0);
   const [playing, setPlaying] = React.useState(autoplay);
   // The external-playback latch: true while the HOST play bar is driving
   // time forward as genuine continuous playback (its play-loop seeks
@@ -556,18 +553,12 @@ function Stage({
   // marked stream stops without a parting unmarked seek.
   const [extPlay, setExtPlay] = React.useState(false);
   const extPlayTimerRef = React.useRef(null);
-  const [hoverTime, setHoverTime] = React.useState(null);
   const [scale, setScale] = React.useState(1);
 
   const stageRef = React.useRef(null);
   const canvasRef = React.useRef(null);
   const rafRef = React.useRef(null);
   const lastTsRef = React.useRef(null);
-
-  // Persist playhead
-  React.useEffect(() => {
-    try { localStorage.setItem(persistKey + ':t', String(time)); } catch {}
-  }, [time, persistKey]);
 
   // Auto-scale to fit viewport
   React.useEffect(() => {
@@ -737,8 +728,6 @@ function Stage({
   // with the right fonts. Sets data-om-fonts-inlined once done.
   useInlineFontsInto(canvasRef);
 
-  const displayTime = hoverTime != null ? hoverTime : time;
-
   const ctxValue = React.useMemo(
     // extPlaying is ADDITIVE: "time is advancing under an external
     // driver's continuous playback". `playing` keeps meaning the
@@ -746,11 +735,11 @@ function Stage({
     // the host's clock-reporter/adoption channel) reads that — and
     // SceneSwitch is the one consumer that widens to either.
     () => ({
-      time: displayTime, duration, playing,
+      time, duration, playing,
       extPlaying: extPlay,
       setTime, setPlaying,
     }),
-    [displayTime, duration, playing, extPlay]
+    [time, duration, playing, extPlay]
   );
 
   return (
@@ -807,14 +796,12 @@ function Stage({
 
       {/* Playback bar — stacked below canvas, never overlapping */}
       <PlaybackBar
-        time={displayTime}
-        actualTime={time}
+        time={time}
         duration={duration}
         playing={playing}
         onPlayPause={() => setPlaying(p => !p)}
         onReset={() => { setTime(0); }}
         onSeek={(t) => setTime(t)}
-        onHover={(t) => setHoverTime(t)}
       />
     </div>
   );
@@ -824,7 +811,7 @@ function Stage({
 // Play/pause, return-to-begin, scrub track, time display.
 // Uses fixed-width time fields so layout doesn't thrash.
 
-function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek, onHover }) {
+function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek }) {
   const trackRef = React.useRef(null);
   const [dragging, setDragging] = React.useState(false);
 
@@ -834,25 +821,11 @@ function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek, on
     return x * duration;
   }, [duration]);
 
-  const onTrackMove = (e) => {
-    if (!trackRef.current) return;
-    const t = timeFromEvent(e);
-    if (dragging) {
-      onSeek(t);
-    } else {
-      onHover(t);
-    }
-  };
-
-  const onTrackLeave = () => {
-    if (!dragging) onHover(null);
-  };
-
+  // Seeking happens only between mousedown and mouseup (the window
+  // listeners below carry the drag) — a bare hover must never scrub.
   const onTrackDown = (e) => {
     setDragging(true);
-    const t = timeFromEvent(e);
-    onSeek(t);
-    onHover(null);
+    onSeek(timeFromEvent(e));
   };
 
   React.useEffect(() => {
@@ -934,8 +907,6 @@ function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek, on
       {/* Scrub track */}
       <div
         ref={trackRef}
-        onMouseMove={onTrackMove}
-        onMouseLeave={onTrackLeave}
         onMouseDown={onTrackDown}
         style={{
           flex: 1,
@@ -978,17 +949,6 @@ function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek, on
       }}>
         {fmt(duration)}
       </div>
-
-      {typeof VideoEncoder !== 'undefined' && (
-        <IconButton
-          title="Export video"
-          onClick={() => window.parent.postMessage({ type: 'omelette:request-video-export' }, '*')}
-        >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M7 2v7m0 0L4 6m3 3l3-3M2 12h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </IconButton>
-      )}
     </div>
   );
 }
@@ -1175,10 +1135,10 @@ var SS_MAX_TICK = 0.5;
 // transition="overlap": the boundary commit plus one more frame.
 var SS_OVERLAP_TICKS = 2;
 // Wall-clock ceiling on a window, backstopping the tick budget: ticks are
-// only spent by renders, and a pinned clock (the PlaybackBar's hover
-// preview holds displayTime still even while playing) stops producing
+// only spent by renders, and a pinned clock (a host editor holding the
+// playhead still) stops producing
 // them — without this ceiling, both layers could persist for as long as
-// the mouse rests on the scrub track. 500ms keeps the tick budget intact
+// the clock stays pinned. 500ms keeps the tick budget intact
 // for playback down to ~4fps; the nudge effect in SceneSwitch guarantees
 // a render arrives to enforce it even when the clock is pinned.
 var SS_OVERLAP_MAX_MS = 500;
