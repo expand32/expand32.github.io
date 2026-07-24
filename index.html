@@ -481,7 +481,7 @@
             <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;color:#e4b33c;text-transform:uppercase;font-weight:500">The star — PRIME</div>
             <h2 style="font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-0.02em;line-height:1.08;color:#f2f4f6;margin:16px 0 0">One selector chooses the arithmetic of the tail.</h2>
           </div>
-          <p style="font-size:16px;line-height:1.75;color:#9aa3ad;margin:0;padding-top:8px">Every reverb on the market competes on uniform density. Prime Verb arranges its reflections in a self-similar hierarchy set by a prime — and the PRIME selector lets you choose which. From the dense binary genealogy to the <strong style="color:#e8eaed">Adelic</strong> tail, where the amplitude at step n is exactly <em style="color:#c9d0d8">1/n</em> — every prime at once, by the fundamental theorem of arithmetic.</p>
+          <p style="font-size:16px;line-height:1.75;color:#9aa3ad;margin:0;padding-top:8px">Every reverb on the market competes on uniform density. Prime Verb arranges its reflections in a self-similar hierarchy set by a prime — and the PRIME selector lets you choose which. From the dense binary genealogy to the <strong style="color:#e8eaed">Adelic</strong> tail — every prime at once — a family of spaces with an arithmetic character you won't mistake for anything else.</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:56px">
           <sc-for list="{{ verbPrimes }}" as="fam" hint-placeholder-count="5">
@@ -502,11 +502,11 @@
         <div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;color:#e4b33c;text-transform:uppercase;font-weight:500">The display is the DSP</div>
           <h2 style="font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-0.02em;line-height:1.08;color:#f2f4f6;margin:16px 0 0">The sunburst is the impulse response.</h2>
-          <p style="font-size:16.5px;line-height:1.75;color:#9aa3ad;margin:20px 0 0">The radial tree isn't a picture of the reverb — it <em style="color:#c9d0d8">is</em> the impulse response, ring by ring. Each ring is a generation of the p-adic tree; brightness is the real amplitude. Drag a ring and you lift or cut that whole generation at once — a Genealogy EQ over tree-time, a gesture no ordinary reverb could offer.</p>
+          <p style="font-size:16.5px;line-height:1.75;color:#9aa3ad;margin:20px 0 0">The radial tree isn't a picture of the reverb — it <em style="color:#c9d0d8">is</em> the impulse response, ring by ring. Each ring is a generation of the tree; brightness is the real amplitude. Drag a ring and you lift or cut that whole generation at once — a Genealogy EQ over tree-time, a gesture no ordinary reverb could offer.</p>
           <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.8;color:#5b6570;margin:18px 0 0">Outer rings are the young, dense reflections; the centre is the ancestral, sparse tail. The layout is the arithmetic, not decoration.</p>
         </div>
         <div style="position:relative;height:380px;border:1px solid #232933;border-radius:14px;overflow:hidden;background:#0a0c0f">
-          <img src="assets/prime-verb-ui.png" alt="Prime Verb — the sunburst impulse-response display" style="width:100%;height:100%;object-fit:contain;display:block;background:#0a0c0f">
+          <img src="assets/prime-verb-sunburst.png" alt="Prime Verb — the sunburst impulse-response display" style="width:100%;height:100%;object-fit:contain;display:block;background:#0a0c0f">
         </div>
       </div>
     </div>
@@ -1166,7 +1166,7 @@ class Component extends DCLogic {
           { pill: '3', name: 'Ternary', desc: 'Strong reflections on the powers of three — sparser, more open, more air between echoes.', gold: false },
           { pill: '5', name: 'Quintal', desc: 'Sparser still — the tail thins toward discrete, resonant structure.', gold: false },
           { pill: '7', name: 'Septal', desc: 'Almost a multitap: few, strong, widely-spaced reflections.', gold: false },
-          { pill: '∏', name: 'Adelic', desc: 'Every prime at once — amplitude exactly 1/n. A universal arithmetic tail, a category of its own.', gold: true }
+          { pill: '∏', name: 'Adelic', desc: 'Every prime at once — a universal arithmetic tail with a character of its own.', gold: true }
         ];
         return ps.map(f => ({
           pill: f.pill, name: f.name, desc: f.desc,
@@ -1176,8 +1176,8 @@ class Component extends DCLogic {
       })(),
 
       verbClaims: [
-        { tag: 'HIERARCHICAL DENSITY', title: 'Density with structure, not a wash', body: 'Every commercial reverb competes on uniform reflection density. Prime Verb arranges its reflections in a self-similar hierarchy from p-adic valuation — young, dense generations over old, sparse ancestors. Space with order you can hear inside it.', figure: 'density set by the tree, not by a smoother' },
-        { tag: 'ADELIC TAIL', title: 'The tail that is 1/n', body: 'Switch to Adelic and the reflection at step n has amplitude exactly 1/n — the product of every prime valuation at once, by the fundamental theorem of arithmetic. A tail written by number theory, not drawn by a designer.', figure: 'amplitude(n) = 1/n · centroid −32% vs binary' },
+        { tag: 'HIERARCHICAL DENSITY', title: 'Density with structure, not a wash', body: 'Every commercial reverb competes on uniform reflection density. Prime Verb arranges its reflections in a self-similar, hierarchical structure — young, dense generations over old, sparse ancestors. Space with order you can hear inside it.', figure: 'density set by the structure, not by a smoother' },
+        { tag: 'ADELIC TAIL', title: 'A tail from every prime at once', body: 'Switch to Adelic and the tail takes on a character no single prime gives you — the whole arithmetic braided into one space. A reverb tail that comes from number theory, not from a designer drawing a curve.', figure: 'measured centroid −32% vs binary — a different category' },
         { tag: 'WIDTH, GUARANTEED', title: 'Stereo width you can state as a number', body: 'Left and right tails are decorrelated by construction, and Width sets exactly how much — not "a bit of allpass" but a measured correlation you can dial from mono-exact to fully decorrelated.', figure: 'L/R correlation 1.000 → −0.004 across the knob · mono-exact at 0' },
         { tag: 'GLASS', title: 'A decay you can stretch', body: 'Glass reshapes the envelope from a pure exponential to a long, crystalline stretched-exponential that emerges from the physics of the model, not a drawn curve. From subtle rooms to endless shimmer.', figure: 'measured stretch β: 1.00 → 0.28' },
         { tag: 'FREEZE, TUNED', title: 'An infinite tail, tuned to the math', body: 'Freeze holds the tail on a bank of resonators pitched to the eigenmodes of the operator itself, seeded from 250 ms of the real tail — so it inherits the colour of what was playing. Infinite, but bounded by construction.', figure: '−60 dB in ~52 s · modes 87–844 Hz, measured' },
@@ -1190,14 +1190,14 @@ class Component extends DCLogic {
         { name: 'WIDTH', range: '0–1', desc: 'Stereo decorrelation, from mono-exact to fully wide — a measured correlation, not a trick.' },
         { name: 'GLASS', range: '0–2', desc: 'Stretches the decay from pure exponential to crystalline shimmer.' },
         { name: 'TUNE', range: '±2 oct', desc: 'Pitches the frozen tail across two octaves of the system’s own eigenmodes.' },
-        { name: 'PRIME', range: 'five modes', desc: 'The arithmetic of the tail — from dense binary genealogy to the Adelic 1/n.' },
+        { name: 'PRIME', range: 'five modes', desc: 'The arithmetic of the tail — from dense binary genealogy to the Adelic mode.' },
         { name: 'FREEZE', range: 'on / off', desc: 'Holds the tail forever on a resonator bank tuned to the system. Bounded, not a loop.' },
         { name: 'GENEALOGY', range: '9 layers', desc: 'Sculpt each generation of reflections by dragging its ring on the sunburst.' }
       ],
 
       verbPresets: [
         { name: 'Binary Hall', use: 'p=2, 1.8 s — the dense flagship wash. 35,887 reflections/s, dead-centre stereo.' },
-        { name: 'Adelic Cathedral', use: 'The Adelic 1/n tail at 3.5 s with Glass — vast, sparse, luminous. ~13 strong refl/s.' },
+        { name: 'Adelic Cathedral', use: 'The Adelic tail at 3.5 s with Glass — vast, sparse, luminous. ~13 strong refl/s.' },
         { name: 'Seventh Glass', use: 'p=7 and full Glass: few reflections, a long crystalline tail (2.0 s).' },
         { name: 'Tree Skeleton', use: 'Adelic with the young generations pulled down — only the tree remains. ~8 refl/s.' },
         { name: 'Mono Chamber', use: 'p=3, 0.6 s, Width at zero: an exact-mono booth. Correlation +1.000.' },
