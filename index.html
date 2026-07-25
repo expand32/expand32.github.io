@@ -616,10 +616,11 @@
     <!-- Presets -->
     <div style="border-top:1px solid #151a21">
       <div style="max-width:1180px;margin:0 auto;padding:90px 32px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;color:#e4b33c;text-transform:uppercase;font-weight:500">8 factory presets</div>
-        <h2 style="font-size: clamp(30px,4vw,44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; color: #F4F0F0; margin: 16px 0 0">Eight rooms, measured distinct.</h2>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;color:#e4b33c;text-transform:uppercase;font-weight:500">16 factory presets</div>
+        <h2 style="font-size: clamp(30px,4vw,44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; color: #F4F0F0; margin: 16px 0 0">Sixteen rooms, measured distinct.</h2>
+        <p style="font-size:16px;line-height:1.7;color:#9aa3ad;margin:18px 0 0;max-width:640px">Three families in the LOAD menu — Rooms &amp; Plates, Halls &amp; Chambers, and Tree Signature, where the arithmetic is the point. Every one sets all twelve knobs, and no two of them are the same room.</p>
         <div style="margin-top:48px;border:1px solid #232933;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;gap:1px;background:#1c222b">
-          <sc-for list="{{ treePresets }}" as="p" hint-placeholder-count="8">
+          <sc-for list="{{ treePresets }}" as="p" hint-placeholder-count="16">
             <div style="display:grid;grid-template-columns:220px 1fr;gap:20px;padding:20px 26px;align-items:baseline;background:#0f1216">
               <div style="font-weight:700;font-size:15.5px;color:#f2f4f6">{{ p.name }}</div>
               <div style="font-size:14px;line-height:1.6;color:#9aa3ad">{{ p.use }}</div>
@@ -1170,19 +1171,27 @@ class Component extends DCLogic {
       ],
 
       treePresets: [
-        { name: 'Golay Hall', use: 'The flagship: a wide 2.2 s cloud.' },
+        { name: 'Still Air', use: 'The shortest room here: 0.35 s of dense air, and nothing moves.' },
+        { name: 'Focused Booth', use: 'A booth at 0.6 s, with the wet collapsed to the centre.' },
+        { name: 'Slap Lattice', use: 'Low diffusion, partial coupling: a lattice of discrete slaps rather than a wash.' },
+        { name: 'Tight Plate', use: 'Diffusion at the top and the low cut at 180 Hz — plate behaviour, bright and without weight.' },
         { name: 'Family Combs', use: 'The tree\u2019s metallic combs, undressed.' },
-        { name: 'Tree Multitap', use: 'Only the near family — a rhythmic tree multitap.' },
-        { name: 'Deep Cloud', use: '4 s, the cloud at maximum depth.' },
+        { name: 'Golay Hall', use: 'The flagship: a wide 2.2 s cloud, with the tail breathing.' },
+        { name: 'Quiet Nave', use: '90 ms of pre-delay and a low mix — the source stays forward and the room sits behind it.' },
         { name: 'Kin Veil', use: 'A veil halfway between comb and cloud.' },
-        { name: 'Focused Booth', use: 'A mono-centered booth, 0.6 s.' },
-        { name: 'Slap Lattice', use: 'A lattice of discrete slaps.' },
-        { name: 'Still Air', use: 'Minimal dense air, 0.35 s.' }
+        { name: 'Lush Bloom', use: 'MOTION at 100 and quick with it: the most animated room in the bank.' },
+        { name: 'Adelic Vault', use: 'Dark stone — the highs leave early, and nothing drifts.' },
+        { name: 'Deep Cloud', use: '4 s, the cloud at full coupling.' },
+        { name: 'Tree Multitap', use: 'Coupling at 0: only the near family mixes, and what you hear is a rhythmic tree multitap.' },
+        { name: 'Split Families', use: 'Coupling wide open with almost no diffusion — the two decay slopes at their most audible.' },
+        { name: 'Breathing Cloud', use: 'A 5.5 s tail with a very slow drift running underneath it.' },
+        { name: 'Duck Cavern', use: 'A cavern that steps aside while you play and comes back in the gaps.' },
+        { name: 'Twelve Second Tree', use: 'The far end of the range, and twelve seconds of it.' }
       ],
 
       treeSpecs: [
         { label: 'Format', value: 'VST3 + Standalone · Win 64-bit' },
-        { label: 'Presets', value: '8 factory · SAVE/LOAD .tfpreset' },
+        { label: 'Presets', value: '16 factory · SAVE/LOAD .tfpreset' },
         { label: 'IR Export', value: '24-bit WAV of the current room' },
         { label: 'Inside Expand32', value: 'FX-chain slot · same live graph' }
       ],
