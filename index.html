@@ -57,39 +57,6 @@
         <div style="margin:44px auto 0;max-width:960px;border:1px solid #232933;border-radius:14px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(255,138,42,0.18), 0 30px 60px -40px rgba(0,0,0,0.9);background:#06080e">
           <iframe src="Video%20con%20voz%20duck/github-pages/index.html" title="Expand32 — intro animation" style="display:block;width:100%;aspect-ratio:16/9;border:0" allow="autoplay; fullscreen" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
         </div>
-        <div style="margin:34px auto 0;max-width:960px">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;color:#ff8a2a;text-transform:uppercase;font-weight:500">Audio samples</div>
-          <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px">
-            <div style="display:flex;align-items:center;gap:20px;background:#12151a;border:1px solid #232933;border-radius:12px;padding:18px 24px;flex-wrap:wrap;text-align:left">
-              <div style="flex:1;min-width:220px">
-                <div style="font-weight:700;font-size:16px;color:#e8eaed">Physical WG engine</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5b6570;margin-top:4px">LINEAGE DELAY + TREE FDN</div>
-              </div>
-              <audio controls="controls" preload="none" src="Muestras%20de%20audio/Engine%20physical%20Wg%20-%20Lineage%20delay%20%26%20Tree%20fdn.wav" style="flex:1;min-width:260px;height:36px"></audio>
-            </div>
-            <div style="display:flex;align-items:center;gap:20px;background:#12151a;border:1px solid #232933;border-radius:12px;padding:18px 24px;flex-wrap:wrap;text-align:left">
-              <div style="flex:1;min-width:220px">
-                <div style="font-weight:700;font-size:16px;color:#e8eaed">Undertone engine</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5b6570;margin-top:4px">AUTO + TREE FDN + PRIME LINEAGE</div>
-              </div>
-              <audio controls="controls" preload="none" src="Muestras%20de%20audio/Engine%20Undertone%20-%20Aut%2BTree%20fdn%2BPrime%20lineage.wav" style="flex:1;min-width:260px;height:36px"></audio>
-            </div>
-            <div style="display:flex;align-items:center;gap:20px;background:#12151a;border:1px solid #232933;border-radius:12px;padding:18px 24px;flex-wrap:wrap;text-align:left">
-              <div style="flex:1;min-width:220px">
-                <div style="font-weight:700;font-size:16px;color:#e8eaed">Elliptic Curve engine</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5b6570;margin-top:4px">TREE FDN + LINEAGE DELAYS</div>
-              </div>
-              <audio controls="controls" preload="none" src="Muestras%20de%20audio/Eliptic%20curve%20-%20Tree%20fdn%2B%20Lineage%20delays.wav" style="flex:1;min-width:260px;height:36px"></audio>
-            </div>
-            <div style="display:flex;align-items:center;gap:20px;background:#12151a;border:1px solid #232933;border-radius:12px;padding:18px 24px;flex-wrap:wrap;text-align:left">
-              <div style="flex:1;min-width:220px">
-                <div style="font-weight:700;font-size:16px;color:#e8eaed">Rössler engine</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5b6570;margin-top:4px">TREE FDN + PRIME LINEAGE</div>
-              </div>
-              <audio controls="controls" preload="none" src="Muestras%20de%20audio/Engine%20Rossler%20-%20%20Tree%20fdn%2B%20Prime%20Lineage.wav" style="flex:1;min-width:260px;height:36px"></audio>
-            </div>
-          </div>
-        </div>
         <div style="display:flex;justify-content:center;gap:14px;margin-top:38px;flex-wrap:wrap">
           <div onClick="{{ goBuy }}" style="display:inline-flex;align-items:center;gap:10px;background:#ff8a2a;color:#0a0c0f;font-weight:700;font-size:16px;padding:15px 30px;border-radius:8px;cursor:pointer" style-hover="background:#ffa04d">Try it free ↓</div>
           <div onClick="{{ goSynth }}" style="display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid #2c343f;color:#e8eaed;font-weight:600;font-size:16px;padding:14px 30px;border-radius:8px;cursor:pointer" style-hover="border-color:#ff8a2a;color:#ff8a2a">Explore the engines</div>
@@ -154,7 +121,7 @@
         </div>
         <div onClick="{{ goTree }}" style="background:#12151a;border:1px solid #232933;border-radius:16px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column" style-hover="border-color:#e4b33c">
           <div style="height:220px;overflow:hidden;border-bottom:1px solid #1c222b;background:#0d0f13;display:flex;justify-content:center">
-            <img src="captura-de-pantalla-205--mru69im2-6m0v.png" alt="Tree FDN" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
+            <img src="assets/tree-fdn-ui.png" alt="Tree FDN" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
           </div>
           <div style="padding:26px 28px 28px;display:flex;flex-direction:column;gap:10px;flex:1">
             <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.2em;color:#e4b33c">ALGORITHMIC REVERB</div>
@@ -194,44 +161,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Audio demos -->
-    <sc-if value="{{ showAudio }}" hint-placeholder-val="{{ true }}">
-      <div style="border-top:1px solid #151a21">
-        <div style="max-width:900px;margin:0 auto;padding:100px 32px">
-          <div style="text-align:center">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;color:#ff8a2a;text-transform:uppercase;font-weight:500">Listen</div>
-            <h2 style="font-size:clamp(32px,4.5vw,50px);font-weight:800;letter-spacing:-0.02em;line-height:1.05;color:#f2f4f6;margin:16px 0 0">Hear the geometry.</h2>
-          </div>
-          <div style="margin-top:48px;position:relative;width:100%;padding-top:56.25%;border-radius:14px;overflow:hidden;border:1px solid #232933;background:#0a0c0f">
-            <iframe src="https://www.youtube.com/embed/OigM_SSSbHU" title="Expand32 — sound demo" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:12px;margin-top:48px">
-            <div style="display:flex;align-items:center;gap:20px;background:#12151a;border:1px solid #232933;border-radius:12px;padding:18px 24px;flex-wrap:wrap">
-              <div style="flex:1;min-width:220px">
-                <div style="font-weight:700;font-size:16px;color:#e8eaed">Multitap lead — Tree FDN</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5b6570;margin-top:4px">A/B DEMO · FIRST PASS DRY — THEN THE REVERB KICKS IN</div>
-              </div>
-              <audio controls="controls" preload="none" src="./audios/tree-multitap-lead.wav" style="flex:1;min-width:260px;height:36px"></audio>
-            </div>
-            <div style="display:flex;align-items:center;gap:20px;background:#12151a;border:1px solid #232933;border-radius:12px;padding:18px 24px;flex-wrap:wrap">
-              <div style="flex:1;min-width:220px">
-                <div style="font-weight:700;font-size:16px;color:#e8eaed">Trumpet — Tree FDN</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5b6570;margin-top:4px">A/B DEMO · FIRST PASS DRY — THEN THE REVERB KICKS IN</div>
-              </div>
-              <audio controls="controls" preload="none" src="./audios/trumpet-tree-fdn.wav" style="flex:1;min-width:260px;height:36px"></audio>
-            </div>
-            <div style="display:flex;align-items:center;gap:20px;background:#12151a;border:1px solid #232933;border-radius:12px;padding:18px 24px;flex-wrap:wrap">
-              <div style="flex:1;min-width:220px">
-                <div style="font-weight:700;font-size:16px;color:#e8eaed">Vocal — Tree FDN</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5b6570;margin-top:4px">A/B DEMO · FIRST PASS DRY — THEN THE REVERB KICKS IN</div>
-              </div>
-              <audio controls="controls" preload="none" src="./audios/vocal-tree-fdn.wav" style="flex:1;min-width:260px;height:36px"></audio>
-            </div>
-          </div>
-        </div>
-      </div>
-    </sc-if>
 
     <!-- Roadmap / research -->
     <div style="border-top:1px solid #151a21;background:#0c0e12">
@@ -593,7 +522,7 @@
           
           <h1 style="font-size: clamp(42px,6vw,76px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #21B6F6; margin: 18px 0 0">Tree FDN</h1><div style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:0.1em;color:#e4b33c;margin-top:14px">the room, alive</div>
           
-          <p style="font-size: 17.5px; line-height: 1.7; color: #FFFFFF; margin: 22px 0 0; max-width: 620px">A new algorithmic reverb built on an unusual topology: It´s 16 delay lines,&nbsp; the nodes of a branching mathematical tree, and the feedback matrix is an exact energy-preserving rotation derived from the tree´s geometry.</p><ul style="list-style:none;padding:0;margin:26px 0 0;display:flex;flex-direction:column;gap:12px">
+          <p style="font-size: 17.5px; line-height: 1.7; color: #FFFFFF; margin: 22px 0 0; max-width: 620px">A new algorithmic reverb built on an unusual topology: 16 delay lines standing at the nodes of a branching mathematical tree, and a feedback matrix that is an exact energy-preserving rotation derived from the tree’s own geometry. The room can be reshaped while audio runs, set moving, or frozen in place.</p><ul style="list-style:none;padding:0;margin:26px 0 0;display:flex;flex-direction:column;gap:12px">
             <sc-for list="{{ treePoints }}" as="p" hint-placeholder-count="4">
               <li style="display:flex;gap:14px;align-items:baseline;font-size:15.5px;line-height:1.6;color:#c9d0d8"><span style="color:#e4b33c;font-family:'IBM Plex Mono',monospace;font-size:12px">◆</span><span style="color: #9A9B9D"><strong style="color:#f2f4f6">{{ p.k }}</strong> — {{ p.v }}</span></li>
             </sc-for>
@@ -605,7 +534,7 @@
         </div>
         <div style="justify-self:center;max-width:420px;width:100%">
           <div style="border:1px solid #232933;border-radius:14px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(228,179,60,0.15), 0 30px 60px -40px rgba(0,0,0,0.9)">
-            <img src="./captura-de-pantalla-205--mru69im2-6m0v.png" alt="Tree FDN interface — the 16-node circular graph" style="display:block;width:100%;height:auto">
+            <img src="./assets/tree-fdn-ui.png" alt="Tree FDN interface — twelve controls and the 16-node circular graph" style="display:block;width:100%;height:auto">
           </div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5b6570;margin-top:14px;text-align:center">Windows 64-bit available now · macOS coming <span style="color:#9aa3ad">August 2026</span></div>
         </div>
@@ -655,7 +584,7 @@
         <div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;color:#e4b33c;text-transform:uppercase;font-weight:500">The display is the DSP</div>
           <h2 style="font-size: clamp(30px,4vw,44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; color: #FCFCFC; margin: 16px 0 0">Sixteen nodes. Every chord is a live coefficient.</h2>
-          <p style="font-size: 16.5px; line-height: 1.75; color: #A29494; margin: 20px 0 0">The circular graph isn't an animation of the reverb — it <em style="color:#c9d0d8">is</em> the reverb. The chords draw the real mixing matrix, so turning Diffusion or Depth visibly rewires the room. Each node glows with the actual RMS of its delay line.</p>
+          <p style="font-size: 16.5px; line-height: 1.75; color: #A29494; margin: 20px 0 0">The circular graph isn't an animation of the reverb — it <em style="color:#c9d0d8">is</em> the reverb. The chords draw the real mixing matrix, so turning Diffusion or Coupling visibly rewires the room. Each node glows with the actual RMS of its delay line, and breathes with the movement of that same line — sixteen nodes, sixteen drifts, none of them in step. Take Motion to zero and the graph goes still, because the engine has.</p>
           <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.8;color:#5b6570;margin:18px 0 0">Every node sits where the structure of the tree puts it — the layout is the mathematics, not decoration.</p>
         </div>
         <div style="position:relative;height:380px;border:1px solid #232933;border-radius:14px;overflow:hidden;background:#0a0c0f">
@@ -668,7 +597,7 @@
     <div style="border-top:1px solid #151a21;background:#0c0e12">
       <div style="max-width:1180px;margin:0 auto;padding:90px 32px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;color:#e4b33c;text-transform:uppercase;font-weight:500">The controls</div>
-        <h2 style="font-size: clamp(30px,4vw,44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; color: #FCFCFC; margin: 16px 0 0; max-width: 640px">Six controls. The tree does the rest.</h2>
+        <h2 style="font-size: clamp(30px,4vw,44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; color: #FCFCFC; margin: 16px 0 0; max-width: 640px">Twelve controls. The tree does the rest.</h2>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px">
           <sc-for list="{{ treeControls }}" as="c" hint-placeholder-count="6">
             <div style="background:#12151a;border:1px solid #232933;border-radius:14px;padding:26px 28px">
@@ -680,7 +609,7 @@
             </div>
           </sc-for>
         </div>
-        <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5b6570;margin:26px 0 0">Damping is integrated by tree depth: deeper nodes are darker — the highs decay first, like a real room. No extra knob needed.</p>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.9;color:#5b6570;margin:26px 0 0">Plus FREEZE: gains to 1, exact conservation — the room holds forever until you let go, and the movement holds with it.<br>Damping lives in the structure: deeper nodes of the tree are darker, so the highs decay first, like a real room. HF RATIO scales that behaviour instead of stacking a filter on top of it.<br>COUPLING was called DEPTH until this release. Saved projects and host automation are unaffected — only the label changed.</p>
       </div>
     </div>
 
@@ -1209,6 +1138,7 @@ class Component extends DCLogic {
       treePoints: [
         { k: 'Orthogonal by construction', v: 'the diffusion knob never changes the length of the tail — energy is conserved exactly at any setting.' },
         { k: 'Honest T60', v: 'set the knob to 2.0 s, measure a ~2.0 s tail. The number and the room agree.' },
+        { k: 'A tail that breathes', v: 'MOTION gives the room a slow drift that never lines up with itself — density, not wobble. The pitch stays put.' },
         { k: 'Infinite Freeze', v: 'exact conservation — not a loop, not a sample. Measured: \u22120.1 dB over 2 s.' },
         { k: 'True stereo', v: 'wide by mathematics, mono-safe by mathematics.' }
       ],
@@ -1216,19 +1146,27 @@ class Component extends DCLogic {
       treeClaims: [
         { tag: 'ORTHOGONAL MIX', title: 'Diffusion never touches the decay', body: 'The mixing matrix is orthogonal by construction — a genuine rotation of the network, not a gain trick — so energy is conserved exactly at any setting. Diffusion morphs the texture from metallic parallel combs to a dense cloud without ever changing how long the tail lasts.', figure: 'measured tail variation across the full Diffusion range: 2\u20133%' },
         { tag: 'HONEST T60', title: 'A room that tells the truth', body: 'Per-line decay is solved for the T60 you ask for: set ROOM to 2.0 s and the measured tail is ~2.0 s. Most algorithmic reverbs cannot promise this — the printed number and the real number are usually strangers.', figure: 'measured T60 error: 2\u20136%' },
+        { tag: 'COUPLING', title: 'One room, two decay slopes', body: 'Close COUPLING and the branches of the tree stop sharing energy: each family decays at its own rate, so the tail arrives in two slopes \u2014 a quicker early fall with a longer one running underneath. Open it and the network returns to a single unified decay. It moves the shape of the decay, not its density, and it does it without touching the time you set on ROOM.', figure: 'the shape of the decay \u2014 never its length' },
+        { tag: 'MOTION', title: 'Movement without detuning', body: 'Every one of the sixteen lines drifts at its own slow rate, and none of them ever lines up with the others. The tail thickens and stops sounding static \u2014 without the audible wobble that usually comes with a modulated reverb, because nothing is being swept in step. Take MOTION to zero and the engine is bit-identical to a still room; press FREEZE and the movement stops with it.', figure: 'at zero the engine is a still room, bit for bit' },
         { tag: 'FREEZE', title: 'Mathematically infinite freeze', body: 'On freeze, the per-line gains go to 1 and the orthogonal matrix holds the energy — without growing, without dying. It is not a loop and not a sample: it is the system in exact conservation. Hold a room forever.', figure: 'measured drift: \u22120.1 dB over 2 s' },
         { tag: 'TRUE STEREO', title: 'Wide and mono-safe, by mathematics', body: 'Both channels are drawn from one network through a complementary pair of codes — real width with mono compatibility guaranteed by construction, not by luck. And all 16 delay lines are prime numbers of samples: zero comb coincidences.', figure: 'L/R correlation \u2248 \u22120.09 · mono sum: \u22120.4 dB' },
-        { tag: 'LIVE DISPLAY', title: 'The display is the DSP', body: 'The 16-node circular graph shows the real mixing matrix: the chords are the live coefficients — turn Diffusion or Depth and you see it — and each node glows with the actual RMS of its delay line. Every node sits where the structure of the tree puts it.', figure: 'not a visualization — the coefficients themselves' },
+        { tag: 'LIVE DISPLAY', title: 'The display is the DSP', body: 'The 16-node circular graph shows the real mixing matrix: the chords are the live coefficients — turn DIFFUSION or COUPLING and you see it — and each node glows with the actual RMS of its delay line. With MOTION up, the nodes breathe, each on its own drift, so you can see how far from lock-step the network is. At zero, they stand still.', figure: 'not a visualization — the coefficients themselves' },
         { tag: 'COST', title: 'Zero latency, near-zero CPU', body: 'Sixteen delay lines and one 16\u00d716 matrix. No convolution, no lookahead, no latency — an infinite-tail reverb that costs almost nothing to run.', figure: '16 lines + one 16\u00d716 rotation · 0 samples latency' }
       ],
 
       treeControls: [
         { name: 'ROOM', range: '0.3\u201312 s', desc: 'The real T60 of the tail. What you set is what you measure.' },
+        { name: 'PRE-DELAY', range: '0\u2013500 ms', desc: 'The gap between the source and the room \u2014 the control that sets perceived distance. Fine resolution where you actually work: the first 60 ms.' },
         { name: 'DIFFUSION', range: '0\u20131', desc: 'From metallic parallel combs to a dense cloud — a rotation of the tree you can turn live, without changing the tail length.' },
-        { name: 'DEPTH', range: '0\u20131', desc: 'How many levels of kinship mix. At 0, only the near family — an audible tree multitap, 8 pairs. At 1, the full cloud: 120 pairs.' },
-        { name: 'MIX', range: 'dry / wet', desc: 'The wet balance. Everything else about the room stays put while you set it.' },
-        { name: 'FOCUSED / WIDE', range: 'stereo mode', desc: 'FOCUSED keeps the wet centered; WIDE opens the full stereo pair — mono-safe either way.' },
-        { name: 'FREEZE', range: 'on / off', desc: 'Gains to 1, exact conservation. The room holds forever until you let go.' }
+        { name: 'COUPLING', range: '0\u20131', desc: 'How many levels of kinship mix. At 0, only the near family — an audible tree multitap, 8 pairs. At 1, the full cloud: 120 pairs. Close it and the tail arrives in two slopes instead of one.' },
+        { name: 'HF RATIO', range: '0.3–1', desc: 'How much shorter the highs decay than the lows. At 1 the whole spectrum decays together; lower it and the room turns to felt.' },
+        { name: 'WIDTH', range: 'centred → wide', desc: 'Continuous, from a centred wet to the full stereo pair, mono-safe anywhere along the way. FOCUSED and WIDE are one-click shortcuts to the two ends.' },
+        { name: 'RATE', range: '0.05–2 Hz', desc: 'The base speed of the movement. Each of the sixteen lines takes its own multiple of it, so they never drift in step.' },
+        { name: 'MOTION', range: '0–100 %', desc: 'How much the room moves. At 0 the engine is a still room, bit for bit: this knob is the on/off. At 100, the full breathing tail.' },
+        { name: 'LOW CUT', range: '20 Hz–1 kHz', desc: 'Takes the mud out of the wet and leaves the dry untouched. At the bottom of its range it is bypassed exactly.' },
+        { name: 'HIGH CUT', range: '1–20 kHz', desc: 'Sits the tail back without dulling the source, because it filters the wet only. At the top of its range it is bypassed exactly.' },
+        { name: 'DUCK', range: '0–1', desc: 'The dry pushes the wet down while it plays and lets it back in the gaps. Stays active during FREEZE, so you can play over a held room.' },
+        { name: 'MIX', range: 'dry / wet', desc: 'The wet balance. Everything else about the room stays put while you set it.' }
       ],
 
       treePresets: [
