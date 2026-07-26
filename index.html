@@ -80,18 +80,19 @@
         <!-- Samples en WAV: el short muestra el gesto, el WAV muestra el audio real.
              Para añadir otro, duplica el bloque <div style="flex:1 1 280px..."> y cambia
              el src + la etiqueta; van en fila y se acomodan solos. preload="none" para
-             que no se descarguen solos. No le pongas height al <audio>: Chrome recorta
-             los controles y desaparece el botón de play. -->
+             que no se descarguen solos. OJO: controls="controls", nunca controls a secas
+             — support.js pasa el atributo tal cual y "" es falsy, así que los controles
+             no se dibujan (mismo motivo del allowfullscreen="allowfullscreen" de arriba). -->
         <div style="margin:26px auto 0;max-width:700px">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.18em;color:#5b6570;text-transform:uppercase;margin-bottom:14px">Listen · full-resolution WAV</div>
           <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px">
             <div style="flex:1 1 280px;min-width:0;border:1px solid #232933;border-radius:12px;background:#06080e;padding:14px 16px;text-align:left;display:flex;flex-direction:column">
               <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;color:#c9d0d8;margin-bottom:10px">Physical waveguide chord · dry → Prime Lineage + Tree FDN</div>
-              <audio controls preload="none" src="assets/audio/physical-wg-chord-lineage-tree-fdn.wav" style="display:block;width:100%;margin-top:auto">Your browser cannot play this audio.</audio>
+              <audio controls="controls" preload="none" src="assets/audio/physical-wg-chord-lineage-tree-fdn.wav" style="display:block;width:100%;margin-top:auto">Your browser cannot play this audio.</audio>
             </div>
             <div style="flex:1 1 280px;min-width:0;border:1px solid #232933;border-radius:12px;background:#06080e;padding:14px 16px;text-align:left;display:flex;flex-direction:column">
               <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;color:#c9d0d8;margin-bottom:10px">Fitz top lead · dry → Tree FDN reverb</div>
-              <audio controls preload="none" src="assets/audio/top-lead-fitz-tree-fdn.wav" style="display:block;width:100%;margin-top:auto">Your browser cannot play this audio.</audio>
+              <audio controls="controls" preload="none" src="assets/audio/top-lead-fitz-tree-fdn.wav" style="display:block;width:100%;margin-top:auto">Your browser cannot play this audio.</audio>
             </div>
           </div>
         </div>
